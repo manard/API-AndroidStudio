@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ass2</string>
+    <string-array name="spnArray">
+        <item>Health</item>
+        <item>Fat</item>
+        <item>Diet</item>
+        <item>Sweets</item>
+        <item>Drinks</item>
+    </string-array>
+
+</resources>
