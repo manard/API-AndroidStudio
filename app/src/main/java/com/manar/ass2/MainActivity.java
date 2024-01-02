@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {//Log in Activity if you ha
                 String strPass = password.getText().toString();
                 String str1=prefs.getString(RegisterActivity.NAME,"");
                 String str2=prefs.getString(RegisterActivity.PASS,"");
-                if (strName.equals(str1) && strPass.equals(str2)) {
+                if(strName.isEmpty()&&strPass.isEmpty()&&str1.isEmpty()&&str2.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Create Account please!", Toast.LENGTH_SHORT).show();
+                }
+                else if (strName.equals(str1) && strPass.equals(str2)) {
                     Intent intent = new Intent(MainActivity.this, chooseActivity.class);
                     startActivity(intent);
                 }
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {//Log in Activity if you ha
                     Toast.makeText(getApplicationContext(), "checked!", Toast.LENGTH_SHORT).show();
                     editor.putString("saveName",strName);
                     editor.putString("savePass",strPass);
+                    chk.setChecked(true);
                     editor.commit();
                 }
             }
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {//Log in Activity if you ha
         String str2=prefs.getString(RegisterActivity.PASS,"");
         name.setText(str1);
         password.setText(str2);
-        chk.setChecked(true);
+
     }
 
 }
